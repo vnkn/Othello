@@ -117,6 +117,12 @@ public class Othello extends JFrame implements ActionListener, MouseListener, Mo
 							board.strategicMove();
 							setTitle("Black's move");
 						}
+						else if(computermode == 3)
+						{
+							board.minimaxMove();
+							setTitle("Black's move");
+						}
+
 						else
 							setTitle("White's Move");
 					}
@@ -158,6 +164,7 @@ public class Othello extends JFrame implements ActionListener, MouseListener, Mo
 			computermode = 1;
 			System.out.println("Easy!");
 		}
+
 		if(cmd == "New 8 Game: Computer Hard Mode")
 		{
 			setTitle("New Game! Black's move. Ready for a challenge?");
@@ -166,6 +173,15 @@ public class Othello extends JFrame implements ActionListener, MouseListener, Mo
 			board.setPlayers();
 			board.zeroMoves();
 			computermode = 2;
+		}
+		if(cmd == "New 8 Game: Computer Minimax Mode")
+		{
+			setTitle("New Game! Black's move. Ready for a challenge?");
+			// These are the steps to start a new game.
+			board.clearBoard();
+			board.setPlayers();
+			board.zeroMoves();
+			computermode = 3;
 		}
 
 		if(cmd == "Resign")
